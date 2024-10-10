@@ -1,4 +1,4 @@
-import { CONSTANTS } from '../data/constants.js';
+import { CONSTANTS } from '../constants/constants.js';
 import fs from 'node:fs/promises';
 import cucumberJson from 'wdio-cucumberjs-json-reporter';
 import { generate } from 'multiple-cucumber-html-reporter'

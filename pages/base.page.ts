@@ -1,5 +1,5 @@
 import { browser } from '@wdio/globals'
-import { URLS } from '../data/urls'
+import { URLS } from '../environments/urls'
 export default class BasePage {
     public async open (url: string) { 
         await browser.url(url);

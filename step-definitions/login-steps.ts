@@ -1,6 +1,6 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
 import LoginPage from '../pages/login.page.js';
-import { URLS } from '../data/urls.js';
+import { URLS } from '../environments/urls.js';
 import { USERS } from '../data/users.js';
 
 Given(/^(.*) is logged in and navigated to Swag Labs - (.*) page$/, 

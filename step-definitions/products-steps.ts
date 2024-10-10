@@ -1,8 +1,8 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
 import { expect, browser } from '@wdio/globals';
 import productsPage from '../pages/products.page.js';
-import { CONSTANTS } from '../data/constants.ts';
-import { CONTENT } from '../data/content.ts';
+import { CONSTANTS } from '../constants/constants.ts';
+import { CONTENT } from '../content/content.ts';
 
 Given(/^selected (.*) products$/, 
     async (numberOfItems:string) => {

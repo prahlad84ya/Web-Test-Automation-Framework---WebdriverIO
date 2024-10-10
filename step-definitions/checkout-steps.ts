@@ -1,6 +1,6 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
 import { expect, browser } from '@wdio/globals';
-import { CONTENT } from '../data/content.js';
+import { CONTENT } from '../content/content.js';
 import { USERS } from '../data/users.js';
 import productsPage from '../pages/products.page.js';
 import cartPage from '../pages/cart.page.js';
