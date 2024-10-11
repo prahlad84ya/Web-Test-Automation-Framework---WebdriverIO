@@ -40,7 +40,7 @@ class CheckoutPage extends PrimaryHeaderPage {
 
     public async verifySelectedProudctsOnCheckout() {
         var cartItems = await this.cartItems;
-        var selectedItems = await browser.sharedStore.get('selectedProducts');
+        var selectedItems = await browser.sharedStore.get('selectedProducts'+process.env.WDIO_WORKER_ID);
         await expect(cartItems.length).toBe(selectedItems.length);
         for(let item = 0; item < await selectedItems.length; item++){
             var id = selectedItems[item].id;

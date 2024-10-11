@@ -22,6 +22,6 @@ Given(/^selected (.*) products$/,
             await addToCartBtn.click();
         }
         await expect(await productsPage.cartBadge).toHaveText(numberOfItems);
-        await browser.sharedStore.set('selectedProducts', listOfSelectedProducts);
-        await browser.sharedStore.set('totalPrice', totalPrice);
+        await browser.sharedStore.set('selectedProducts'+process.env.WDIO_WORKER_ID, listOfSelectedProducts);
+        await browser.sharedStore.set('totalPrice'+process.env.WDIO_WORKER_ID, totalPrice);
     });

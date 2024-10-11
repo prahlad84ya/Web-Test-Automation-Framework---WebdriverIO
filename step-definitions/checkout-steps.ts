@@ -8,7 +8,7 @@ import checkoutPage from '../pages/checkout.page.js';
 
 Given(/^reviewed selected products in the cart$/, 
     async () => {
-        var selectedProducts = await browser.sharedStore.get('selectedProducts');
+        var selectedProducts = await browser.sharedStore.get('selectedProducts'+process.env.WDIO_WORKER_ID);
         await productsPage.cartContainer.click();
         await expect(await cartPage.title).toHaveText(CONTENT.cartPage.title);
         await expect(await productsPage.cartBadge).toHaveText(String(await selectedProducts.length));
@@ -21,7 +21,7 @@ When(/^(.*) clicks on the checkout button and continues with the checkout inform
         var firstname = user['firstname'];
         var lastname = user['lastname'];
         var postalcode = user['zipcode'];
-        var selectedProducts = await browser.sharedStore.get('selectedProducts');
+        var selectedProducts = await browser.sharedStore.get('selectedProducts'+process.env.WDIO_WORKER_ID);
         await cartPage.checkoutBtn.click();
         await expect(await checkoutPage.title).toHaveText(CONTENT.checkoutPage.title.yourInformation);
         await expect(await productsPage.cartBadge).toHaveText(String(await selectedProducts.length));
@@ -36,8 +36,8 @@ When(/^(.*) clicks on the checkout button and continues with the checkout inform
 Then(/^(.*) should see checkout overview$/, 
     async(user:string)=>{
         var user = USERS[user];
-        var selectedProducts = await browser.sharedStore.get('selectedProducts');
-        var totalPrice = await browser.sharedStore.get('totalPrice');
+        var selectedProducts = await browser.sharedStore.get('selectedProducts'+process.env.WDIO_WORKER_ID);
+        var totalPrice = await browser.sharedStore.get('totalPrice'+process.env.WDIO_WORKER_ID);
         var itemPriceLbl = CONTENT.checkoutPage.itemTotalLbl+String(totalPrice);
         await expect(await productsPage.cartBadge).toHaveText(String(await selectedProducts.length));
         await checkoutPage.verifySelectedProudctsOnCheckout();

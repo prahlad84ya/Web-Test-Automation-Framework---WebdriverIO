@@ -53,7 +53,7 @@ export const config: WebdriverIO.Config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      */
     onPrepare: function (config, capabilities) {
-        return fs.rm('./reports/badd_reports/', {recursive:true, force: true});
+        return fs.rm('./reports/bdd_reports/', {recursive:true, force: true});
     },
     /**
      * Gets executed before a worker process is spawned and can be used to initialize specific service
